@@ -27,7 +27,6 @@ jobs:
       - name: Security Check
         run: gosec ./...
 
-
   style:
     name: Style
     runs-on: ubuntu-latest
