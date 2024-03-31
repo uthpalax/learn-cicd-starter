@@ -21,9 +21,6 @@ jobs:
       - name: Tests
         run: go test -cover ./...
 
-      - name: Formatting
-        run: test -z $(go fmt ./...)
-
   style:
     name: Style
     runs-on: ubuntu-latest
@@ -39,3 +36,9 @@ jobs:
 
       - name: Formatting
         run: test -z $(go fmt ./...)
+
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: staticcheck
+        run: staticcheck ./...
